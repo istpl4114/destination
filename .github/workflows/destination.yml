@@ -8,32 +8,39 @@ on:
 jobs:
   transfer-files:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout source repository
-      uses: actions/checkout@v3
+      - name: Clone GuillaumeFalourd/formulas-training PRIVATE repository
+        uses: GuillaumeFalourd/clone-github-repo-action@main
+        with:
+          owner: 'GuillaumeFalourd'
+          branch: main
+          repository: 'source'
+          access-token: ${{ secrets.ACCESS_TOKEN }}
+    # steps:
+    # - name: Checkout source repository
+    #   uses: actions/checkout@v3
 
-    - name: Set up Git for pushing to target repository
-      run: |
-        git config --global user.email "anjaneyulu.v@istpl.co"
-        git config --global user.name "istpl4114"
+    # - name: Set up Git for pushing to target repository
+    #   run: |
+    #     git config --global user.email "anjaneyulu.v@istpl.co"
+    #     git config --global user.name "istpl4114"
 
-    - name: Clone target repository
-      run: |
-        git clone https://github.com/istpl4114/source.git target-repo
-        cd target-repo
-        git checkout main
+    # - name: Clone target repository
+    #   run: |
+    #     git clone https://github.com/istpl4114/source.git target-repo
+    #     cd target-repo
+    #     git checkout main
 
-    - name: Copy specific files to target repository
-      run: |
-        # cp /istpl4114/source target-repo/
-        cp -r /istpl4114/destination target-repo/
+    # - name: Copy specific files to target repository
+    #   run: |
+    #     # cp /istpl4114/source target-repo/
+    #     cp -r /istpl4114/destination target-repo/
 
-    - name: Commit and push changes to target repository
-      run: |
-        cd target-repo
-        git add .
-        git commit -m "Updated files from source repository"
-        git push origin main
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    # - name: Commit and push changes to target repository
+    #   run: |
+    #     cd target-repo
+    #     git add .
+    #     git commit -m "Updated files from source repository"
+    #     git push origin main
+    #   env:
+    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
