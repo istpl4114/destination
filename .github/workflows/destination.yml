@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Clone GuillaumeFalourd/formulas-training PRIVATE repository
-        uses: GuillaumeFalourd/clone-github-repo-action@main
+        uses: istpl4114/clone-github-repo-action@main
         with:
           owner: 'GuillaumeFalourd'
           branch: main
