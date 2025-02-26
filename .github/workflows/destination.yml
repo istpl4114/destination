@@ -18,6 +18,7 @@ jobs:
           destination-username: 'istpl4114'
           destination-repository: 'source'
           destination-directory: '/'
+          destination-branch: 'main'
           commit-email: 'anjaneyulu.v@istpl.co'
     # steps:
     # - name: Checkout source repository
