@@ -2,9 +2,9 @@ name: Transfer Specific Files
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - application
+  # push:
+  #   branches:
+  #     - main
 
 jobs:
   transfer-files:
